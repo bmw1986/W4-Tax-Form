@@ -1,28 +1,21 @@
 package com.thehofmeisterkink.w4;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.*;  
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.BorderLayout;  
+import java.awt.Dimension;  
+import java.awt.FlowLayout;  
+  
 
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
+import javax.swing.*;  
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.JFrame;  
+import javax.swing.JLabel;  
+import javax.swing.JPanel;  
+import javax.swing.JTextField;
+
 
 public class W4 {
     
@@ -60,16 +53,35 @@ public class W4 {
 		"Palau-PW",
 		"Puerto Rico-PR",
 		"Virgin Islands-VI"};
-
 	
 	public static void main(String[] args) {
 		
 		//// Creates a Frame ////
+		final JFrame frame = new JFrame("The W4 Form");
+		JPanel contentPane = (JPanel)frame.getContentPane();
 		
-			final JFrame frame = new JFrame("The W4 Form");
-			JPanel contentPane = (JPanel)frame.getContentPane();
-			// frame.getContentPane().setBackground(Color.blue);
 		
+		
+		
+	    CollapsablePanel cp = new CollapsablePanel("test", buildPanel());  
+	    
+//        JFrame f = new JFrame();  
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+//        frame.getContentPane().add(new JScrollPane(cp));  
+//        frame.setSize(360, 500);  
+//        frame.setLocation(200, 500);  
+//        frame.setVisible(true);  
+	    
+	    
+	    final Info_PersonalAllowances thing = new Info_PersonalAllowances();
+		
+	    thing.setPreferredSize(new Dimension(200,200));
+	    thing.setLocation(200, 200);
+	    frame.getContentPane().add(thing);
+	    
+	    frame.pack();
+		frame.setVisible(true);
+			
 		//// First Row Component is made and added ////
 			
 			JPanel firstRow = new JPanel();
@@ -102,73 +114,89 @@ public class W4 {
 	        body.setLayout(new GridBagLayout());
 	        GridBagConstraints c;
 	        
-//////////////////////   First Row    //////////////////////
+//////////////////////////////////////   1st Row    ////////////////////////////////////////////
         
-        //// Asks for the First and Middle Name ////
-        
-	        JPanel firstAndMiddle = new JPanel();
-	        // firstAndMiddle.setBorder(new LineBorder(Color.black, 1));
-	        firstAndMiddle.setLayout(new BoxLayout(firstAndMiddle,BoxLayout.Y_AXIS));
+	            
+	        JPanel theBigQuestion = new JPanel();
+	        theBigQuestion.setOpaque(false);
+	        theBigQuestion.setLayout(new BoxLayout(theBigQuestion, BoxLayout.Y_AXIS));
+	       
+	        JLabel theQuestion = new JLabel("<html> Will you marry me?</html>");
+	        theBigQuestion.add(theQuestion);
 	        
-	        JLabel prompt = new JLabel("<html><b>1 </b>Your first and middle initial</html>");
-	        firstAndMiddle.add(prompt);
-	        
-	        JPanel names = new JPanel();
-	        names.add(new JTextField(15));
-	        names.add(new JComboBox(initials));
-	        prompt.setAlignmentX(0);
-	        names.setAlignmentX(0);
-	        firstAndMiddle.add(names);
-			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
 	        c.gridy = 0;
 	        c.weightx = 0.5;
 	        c.gridwidth = 2;
-	        body.add(firstAndMiddle, c);
+	        body.add(theBigQuestion, c);
 	        
-        //// Asks for the Last Name ////
-	        
-	        JPanel lastName = new JPanel();
-	        lastName.setLayout(new BoxLayout(lastName,BoxLayout.Y_AXIS));
-	        JLabel lLastName = new JLabel("Last name");
-	        JTextField tLastName = new JTextField(15);
-	   
-	        lLastName.setAlignmentX(0);
-	        tLastName.setAlignmentX(0);
-	        lastName.add(lLastName);
-	        lastName.add(tLastName);
-			
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        //        c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 2;
-	        c.gridy = 0;
-	        c.gridwidth = 2;
-	        c.weightx = 0.5;
-	        body.add(lastName, c);
-	        
-        //// Asks for the SSN ////
-	        
-	        JPanel SSN = new JPanel();
-	        SSN.setLayout(new BoxLayout(SSN,BoxLayout.Y_AXIS));
-	        JLabel lSSN = new JLabel("<html><b>2  Your social security number</b></html>");
-	        JTextField tSSN = new JTextField(15);
-	        lSSN.setAlignmentX(0);
-	        tSSN.setAlignmentX(0);
-	        SSN.add(lSSN);
-	        SSN.add(tSSN);
-			
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        //        c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 4;
-	        c.gridy = 0;
-	        c.gridwidth = 2;
-	        c.weightx = 0.5;
-	        body.add(SSN, c);
+//        //// Asks for the First and Middle Name ////
+//        
+//	        JPanel firstAndMiddle = new JPanel();
+//	        firstAndMiddle.setOpaque(false);
+//	        firstAndMiddle.setLayout(new BoxLayout(firstAndMiddle,BoxLayout.Y_AXIS));
+//	        
+//	        JLabel prompt = new JLabel("<html><b>1 </b>Your first and middle initial</html>");
+//	        firstAndMiddle.add(prompt);
+//	        
+//	        JPanel names = new JPanel();
+//	        names.add(new JTextField(15));
+//	        names.add(new JComboBox(initials));
+//	        prompt.setAlignmentX(0);
+//	        names.setAlignmentX(0);
+//	        firstAndMiddle.add(names);
+//			
+//	        c = new GridBagConstraints();
+//	        c.anchor = GridBagConstraints.LINE_START;
+//	        // c.fill = GridBagConstraints.HORIZONTAL;
+//	        c.gridx = 0;
+//	        c.gridy = 0;
+//	        c.weightx = 0.5;
+//	        c.gridwidth = 2;
+//	        body.add(firstAndMiddle, c);
+//	        
+//        //// Asks for the Last Name ////
+//	        
+//	        JPanel lastName = new JPanel();
+//	        lastName.setLayout(new BoxLayout(lastName,BoxLayout.Y_AXIS));
+//	        JLabel lLastName = new JLabel("Last name");
+//	        JTextField tLastName = new JTextField(15);
+//	   
+//	        lLastName.setAlignmentX(0);
+//	        tLastName.setAlignmentX(0);
+//	        lastName.add(lLastName);
+//	        lastName.add(tLastName);
+//			
+//	        c = new GridBagConstraints();
+//	        c.anchor = GridBagConstraints.LINE_START;
+//	        //        c.fill = GridBagConstraints.HORIZONTAL;
+//	        c.gridx = 2;
+//	        c.gridy = 0;
+//	        c.gridwidth = 2;
+//	        c.weightx = 0.5;
+//	        body.add(lastName, c);
+//	        
+//        //// Asks for the SSN ////
+//	        
+//	        JPanel SSN = new JPanel();
+//	        SSN.setLayout(new BoxLayout(SSN,BoxLayout.Y_AXIS));
+//	        JLabel lSSN = new JLabel("<html><b>2  Your social security number</b></html>");
+//	        JTextField tSSN = new JTextField(15);
+//	        lSSN.setAlignmentX(0);
+//	        tSSN.setAlignmentX(0);
+//	        SSN.add(lSSN);
+//	        SSN.add(tSSN);
+//			
+//	        c = new GridBagConstraints();
+//	        c.anchor = GridBagConstraints.LINE_START;
+//	        //        c.fill = GridBagConstraints.HORIZONTAL;
+//	        c.gridx = 4;
+//	        c.gridy = 0;
+//	        c.gridwidth = 2;
+//	        c.weightx = 0.5;
+//	        body.add(SSN, c);
         
         //// Creates a line Separator ////
 	        
@@ -182,7 +210,7 @@ public class W4 {
 	        c.weightx = 0.5;
 	        body.add(line, c);
         
-//////////////////////    Second  Row    //////////////////////
+//////////////////////////////////////    2nd Row    ////////////////////////////////////////////
         
 	   //// Prompts for an Address ////
 	        
@@ -245,7 +273,7 @@ public class W4 {
 	        c.weightx = 0.5;
 	        body.add(line, c);
 	        
-//////////////////////     Third  Row    //////////////////////
+//////////////////////////////////////    3rd Row    ////////////////////////////////////////////
         
 		//// Asks for City, State, ZIP Code ////    
 	        
@@ -302,7 +330,7 @@ public class W4 {
 	        c.weightx = 0.5;
 	        body.add(line, c);
         
-//////////////////////     Forth  Row    //////////////////////
+//////////////////////////////////////     4th Row    ////////////////////////////////////////////
 	        
 	    //// Number of Allowances you are claiming ////
 	        
@@ -335,7 +363,7 @@ public class W4 {
 	        c.weightx = 0.5;
 	        body.add(line, c);
         
-//////////////////////     Fifth  Row    //////////////////////
+//////////////////////////////////////    5th Row    ////////////////////////////////////////////
         
 	    //// Addition amount owed ////    
 	        
@@ -366,7 +394,7 @@ public class W4 {
 	        c.weightx = 0.5;
 	        body.add(line, c);
         
-//////////////////////     Sixth  Row    //////////////////////
+//////////////////////////////////////    7th Row    ////////////////////////////////////////////
         
        //// Accepting Terms ////
 	        
@@ -391,7 +419,7 @@ public class W4 {
 			decl.setAlignmentX(0);
 			bottom.add(decl);
 		
-//////////////////////    Seventh Row   /////////////////////////////   			
+//////////////////////////////////////     8th Row    ////////////////////////////////////////////  			
 			
 		//// The Employee's Signature	
 			
@@ -431,5 +459,25 @@ public class W4 {
 		frame.setVisible(true);
         
 	}
-    
+	
+	private static JPanel buildPanel() {
+		GridBagConstraints gbc = new GridBagConstraints();  
+        gbc.insets = new Insets(2, 1, 2, 1);  
+        gbc.weightx = 1.0;  
+        gbc.weighty = 1.0;  
+  
+        JPanel p1 = new JPanel(new GridBagLayout());  
+        gbc.gridwidth = gbc.RELATIVE;  
+        p1.add(new JButton("button 1"), gbc);  
+        gbc.gridwidth = gbc.REMAINDER;  
+        p1.add(new JButton("button 2"), gbc);  
+        gbc.gridwidth = gbc.RELATIVE;  
+        p1.add(new JButton("button 3"), gbc);  
+        gbc.gridwidth = gbc.REMAINDER;  
+        p1.add(new JButton("button 4"), gbc);  
+  
+        return p1;  
+	}
+	
+	
 }
