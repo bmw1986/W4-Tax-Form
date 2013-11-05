@@ -247,151 +247,177 @@ public class W4 {
 	        
 //////////////////////     Third  Row    //////////////////////
         
-	    JPanel cityStateZip = new JPanel();
-        cityStateZip.setLayout(new BoxLayout(cityStateZip, BoxLayout.Y_AXIS));
-        JLabel label = new JLabel("City or town, state, and ZIP code");
-        JPanel cityStateZip2 = new JPanel();
-        JTextField cityTown = new JTextField(10);
-        JComboBox cStates = new JComboBox(states);
-        JTextField zip = new JTextField(5);
-        cityStateZip2.add(cityTown);
-        cityStateZip2.add(cStates);
-        cityStateZip2.add(zip);
-        label.setAlignmentX(0);
-        cityStateZip2.setAlignmentX(0);
-        cityStateZip.add(label);
-        cityStateZip.add(cityStateZip2);
+		//// Asks for City, State, ZIP Code ////    
+	        
+	        JPanel cityStateZip = new JPanel();
+	        cityStateZip.setLayout(new BoxLayout(cityStateZip, BoxLayout.Y_AXIS));
+	        JLabel label = new JLabel("City or town, state, and ZIP code");
+	        JPanel cityStateZip2 = new JPanel();
+	        JTextField cityTown = new JTextField(10);
+	        JComboBox cStates = new JComboBox(states);
+	        JTextField zip = new JTextField(5);
+	        cityStateZip2.add(cityTown);
+	        cityStateZip2.add(cStates);
+	        cityStateZip2.add(zip);
+	        label.setAlignmentX(0);
+	        cityStateZip2.setAlignmentX(0);
+	        cityStateZip.add(label);
+	        cityStateZip.add(cityStateZip2);
+			
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 0;
+	        c.gridy = 4;
+	        c.gridwidth = 3;
+	        c.weightx = 0.5;
+	        body.add(cityStateZip, c);
+	        
+	    //// Does Last Name Differ from SSN ////    
+	        
+	        JPanel lastNameNote = new JPanel();
+	        JLabel diffNameNote = new JLabel("<html><b>4 If your last name differs from that shown on your social security card,<br> check the box on right. You must call 1-800-772-1213 for a replacement card.</b></html>");
+	        JCheckBox box = new JCheckBox();
+	        lastNameNote.add(diffNameNote);
+	        lastNameNote.add(box);
+			
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 3;
+	        c.gridy = 4;
+	        c.gridwidth = 3;
+	        c.weightx = 0.5;
+	        body.add(lastNameNote, c);
+	        
+	    //// Grid Separator ////    
+	        
+	        line = new JSeparator();
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 0;
+	        c.gridy = 5;
+	        c.gridwidth = 6;
+	        c.weightx = 0.5;
+	        body.add(line, c);
+        
+//////////////////////     Forth  Row    //////////////////////
+	        
+	    //// Number of Allowances you are claiming ////
+	        
+	        JPanel allowances = new JPanel();
+	        JLabel allowancesNote = new JLabel("<html><b>5  </b>Total number of allowances you are claiming. Click button on right to calculate.</html>");
+	        JLabel num = new JLabel(" ## ");
+	        JButton button = new JButton("Worksheet");
+	        allowances.add(allowancesNote);
+	        allowances.add(num);
+	        allowances.add(button);
+			
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 0;
+	        c.gridy = 6;
+	        c.gridwidth = 6;
+	        c.weightx = 0.5;
+	        body.add(allowances, c);
+	        
+	    //// Grid Separator ////    
+	        
+	        line = new JSeparator();
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 0;
+	        c.gridy = 7;
+	        c.gridwidth = 6;
+	        c.weightx = 0.5;
+	        body.add(line, c);
+        
+//////////////////////     Fifth  Row    //////////////////////
+        
+	    //// Addition amount owed ////    
+	        
+	        JPanel additional = new JPanel();
+	        JLabel additionalNote = new JLabel("<html><b>6 </b>Additional amount, if any, you want to withheld from each paycheck. <b>$</b></html>");
+	        JTextField amount = new JTextField(7);
+	        additional.add(additionalNote);
+	        additional.add(amount);
+			
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 0;
+	        c.gridy = 8;
+	        c.gridwidth = 6;
+	        c.weightx = 0.5;
+	        body.add(additional, c);
+	        
+	    //// Creates Line Separator ////    
+	        
+	        line = new JSeparator();
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 0;
+	        c.gridy = 9;
+	        c.gridwidth = 6;
+	        c.weightx = 0.5;
+	        body.add(line, c);
+        
+//////////////////////     Sixth  Row    //////////////////////
+        
+       //// Accepting Terms ////
+	        
+		    JPanel exempt = new JPanel();
+	        JLabel exemptNote = new JLabel("<html><b>7 </b>I claim exemption from withholding for 2013, and I certify that I meet <b>both</b> of the following conditions for exemption. <ul>  <li>Last year I had a right to a refund of <b>all</b> federal income tax withheld because I had <b>no</b> tax liability, <b>and</b></li>  <li>This year I expect a refund of <b>all</b> federal income tax withheld because I expect to have <b>no</b> tax liability.</li></ul> <br> If you meet both conditions, check the \"Exempt\" box on right.</html>");
+	        JCheckBox exemptBox = new JCheckBox("Exempt");
+	        exempt.add(exemptNote);
+	        exempt.add(exemptBox);
+			
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 0;
+	        c.gridy = 10;
+	        c.gridwidth = 6;
+	        c.weightx = 0.5;
+	        body.add(exempt, c);
+	        
+	        JPanel bottom = new JPanel();
+			bottom.setLayout(new BoxLayout(bottom, BoxLayout.Y_AXIS));
+			JLabel decl = new JLabel("Under penalties of perjury, I declare that I have examined this certificate and, to the best of my knowledge and belief, it is true, correct, and complete.");
+			decl.setAlignmentX(0);
+			bottom.add(decl);
 		
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        //        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 4;
-        c.gridwidth = 3;
-        c.weightx = 0.5;
-        body.add(cityStateZip, c);
-        
-        JPanel lastNameNote = new JPanel();
-        JLabel diffNameNote = new JLabel("<html><b>4 If your last name differs from that shown on your social security card,<br> check the box on right. You must call 1-800-772-1213 for a replacement card.</b></html>");
-        JCheckBox box = new JCheckBox();
-        lastNameNote.add(diffNameNote);
-        lastNameNote.add(box);
-		
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        //        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 3;
-        c.gridy = 4;
-        c.gridwidth = 3;
-        c.weightx = 0.5;
-        body.add(lastNameNote, c);
-        
-        line = new JSeparator();
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 5;
-        c.gridwidth = 6;
-        c.weightx = 0.5;
-        body.add(line, c);
-        
-        //////////////////////     Forth  Row    //////////////////////
-        JPanel allowances = new JPanel();
-        JLabel allowancesNote = new JLabel("<html><b>5  </b>Total number of allowances you are claiming. Click button on right to calculate.</html>");
-        JLabel num = new JLabel(" ## ");
-        JButton button = new JButton("Worksheet");
-        allowances.add(allowancesNote);
-        allowances.add(num);
-        allowances.add(button);
-		
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        //        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 6;
-        c.gridwidth = 6;
-        c.weightx = 0.5;
-        body.add(allowances, c);
-        
-        line = new JSeparator();
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 7;
-        c.gridwidth = 6;
-        c.weightx = 0.5;
-        body.add(line, c);
-        
-        //////////////////////     Fifth  Row    //////////////////////
-        
-        JPanel additional = new JPanel();
-        JLabel additionalNote = new JLabel("<html><b>6 </b>Additional amount, if any, you want to withheld from each paycheck. <b>$</b></html>");
-        JTextField amount = new JTextField(7);
-        additional.add(additionalNote);
-        additional.add(amount);
-		
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        //        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 8;
-        c.gridwidth = 6;
-        c.weightx = 0.5;
-        body.add(additional, c);
-        
-        line = new JSeparator();
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 9;
-        c.gridwidth = 6;
-        c.weightx = 0.5;
-        body.add(line, c);
-        
-        //////////////////////     Sixth  Row    //////////////////////
-        
-        JPanel exempt = new JPanel();
-        JLabel exemptNote = new JLabel("<html><b>7 </b>I claim exemption from withholding for 2013, and I certify that I meet <b>both</b> of the following conditions for exemption. <ul>  <li>Last year I had a right to a refund of <b>all</b> federal income tax withheld because I had <b>no</b> tax liability, <b>and</b></li>  <li>This year I expect a refund of <b>all</b> federal income tax withheld because I expect to have <b>no</b> tax liability.</li></ul> <br> If you meet both conditions, check the \"Exempt\" box on right.</html>");
-        JCheckBox exemptBox = new JCheckBox("Exempt");
-        exempt.add(exemptNote);
-        exempt.add(exemptBox);
-		
-        c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.LINE_START;
-        //        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 10;
-        c.gridwidth = 6;
-        c.weightx = 0.5;
-        body.add(exempt, c);
-        
-        JPanel bottom = new JPanel();
-		bottom.setLayout(new BoxLayout(bottom, BoxLayout.Y_AXIS));
-		JLabel decl = new JLabel("Under penalties of perjury, I declare that I have examined this certificate and, to the best of my knowledge and belief, it is true, correct, and complete.");
-		decl.setAlignmentX(0);
-		bottom.add(decl);
-		JPanel signAndDate = new JPanel();
-		signAndDate.setLayout(new BoxLayout(signAndDate, BoxLayout.X_AXIS));
-		signAndDate.setAlignmentX(0);
-        //		signAndDate.setPreferredSize(new Dimension(500, 200));
-		signAndDate.add(new JButton("Employee's signature"));
-		signAndDate.add(new JLabel("<html>SIGNATURE HERE (This form is not valid unless you sign it.) </html>"));
-        
-		final JButton b = new JButton("Date");
-		final JLabel text = new JLabel("Enter a date   ");
-		
-		signAndDate.add(b);
-		signAndDate.add(text);
-		
-		b.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-		        text.setText(new DatePicker(frame).setPickedDate());
-            }
-        });
-		bottom.add(signAndDate);
+//////////////////////    Seventh Row   /////////////////////////////   			
+			
+		//// The Employee's Signature	
+			
+			JPanel signAndDate = new JPanel();
+			signAndDate.setLayout(new BoxLayout(signAndDate, BoxLayout.X_AXIS));
+			signAndDate.setAlignmentX(0);
+	        // signAndDate.setPreferredSize(new Dimension(500, 200));
+			signAndDate.add(new JButton("Employee's signature"));
+			signAndDate.add(new JLabel("<html>SIGNATURE HERE (This form is not valid unless you sign it.) </html>"));
+	        
+		//// Enter the Date ////
+			
+			final JButton b = new JButton("Date");
+			final JLabel text = new JLabel("Enter a date   ");
+			
+			signAndDate.add(b);
+			signAndDate.add(text);
+			
+			b.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent ae) {
+			        text.setText(new DatePicker(frame).setPickedDate());
+	            }
+	        });
+			bottom.add(signAndDate);
+			
+//////////////////////    Adds the Content     ///////////////////////////////			
         
 		contentPane.add(firstRow, BorderLayout.NORTH);
 		contentPane.add(body, BorderLayout.CENTER);
