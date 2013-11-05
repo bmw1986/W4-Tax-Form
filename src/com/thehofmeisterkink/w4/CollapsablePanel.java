@@ -17,6 +17,18 @@ class CollapsablePanel extends JPanel {
     JPanel contentPanel_;  
     HeaderPanel headerPanel_;  
   
+    
+  //CollapsablePanel cp = new CollapsablePanel("test", buildPanel());  
+    
+//  JFrame f = new JFrame();  
+//  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+//  frame.getContentPane().add(new JScrollPane(cp));  
+//  frame.setSize(360, 500);  
+//  frame.setLocation(200, 500);  
+//  frame.setVisible(true);  
+      
+    
+    
     private class HeaderPanel extends JPanel implements MouseListener {  
         String text_;  
         Font font;  

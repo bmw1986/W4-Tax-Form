@@ -1,5 +1,6 @@
 package com.thehofmeisterkink.w4;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -21,3 +22,16 @@ public class Info_PersonalAllowances extends JPanel {
 
 	}
 }
+
+
+
+
+//
+//final Info_PersonalAllowances thing = new Info_PersonalAllowances();
+//
+//thing.setPreferredSize(new Dimension(200,200));
+//thing.setLocation(200, 200);
+//frame.getContentPane().add(thing);
+//
+//frame.pack();
+//frame.setVisible(true);
