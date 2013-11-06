@@ -59,8 +59,9 @@ public class W4 {
 	public static void main(String[] args) {
 		
 		//// Creates a Frame ////
-		final JFrame frame = new JFrame("The W4 Form");
-		JPanel contentPane = (JPanel)frame.getContentPane();
+			
+			final JFrame frame = new JFrame("The W4 Form");
+			JPanel titlePane = (JPanel)frame.getContentPane();
 			
 		//// First Row Component is made and added ////
 			
@@ -69,24 +70,21 @@ public class W4 {
 
 		//// w4 Component ////
 				
-			JLabel w4=new JLabel("<html>Form W-4 <br> Department of the Treasury  <br> Internal Revenue Service</html>");
+			JLabel w4 = new JLabel("<html>Form W-4 <br> Department of the Treasury  <br> Internal Revenue Service</html>");
+			firstRow.add(w4);
 		
-		//// Title Component ////
+			//// Title Component ////
 			
 			JLabel title = new JLabel("<html> <h2>Employee's Withholding Allowance Certificate </h2></html>");
 			title.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 			title.setBorder(new EmptyBorder(0, 10, 0, 10));
-		
+			firstRow.add(title);
+			
 		//// OMBNo Component ////
 		
-				JLabel OMBNo = new JLabel("<html>OMB No. 1545-0074 <br><big>2013</big><html>");
-		
-		//// Adds the 3 Components to the Frame ////
-				
-			firstRow.add(w4);
-			firstRow.add(title);
-			firstRow.add(OMBNo);
-			
+			JLabel OMBNumber = new JLabel("<html>OMB No. 1545-0074 <br><big>2013</big><html>");
+			firstRow.add(OMBNumber);
+
 		//// Body Component //// 
 			
 	        JPanel body = new JPanel();
@@ -234,8 +232,8 @@ public class W4 {
 //////////////////////////////////////             ////////////////////////////////////////////   
 	        
 	        
-	        contentPane.add(firstRow, BorderLayout.NORTH);
-			contentPane.add(body, BorderLayout.CENTER);
+	        titlePane.add(firstRow, BorderLayout.NORTH);
+			titlePane.add(body, BorderLayout.CENTER);
 			//contentPane.add(bottom, BorderLayout.SOUTH);
 			
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
