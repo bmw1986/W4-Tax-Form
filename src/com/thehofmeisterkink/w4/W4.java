@@ -56,6 +56,8 @@ public class W4 {
 		"Puerto Rico-PR",
 		"Virgin Islands-VI"};
 	
+	static int askAnother = 0;
+	
 	public static void main(String[] args) {
 		
 		//// Creates a Frame ////
@@ -87,7 +89,7 @@ public class W4 {
 
 		//// Body Component //// 
 			
-	        JPanel body = new JPanel();
+	        final JPanel body = new JPanel();
 	        body.setBorder(new LineBorder(Color.black, 2));
 	        body.setLayout(new GridBagLayout());
 	        GridBagConstraints c;
@@ -109,37 +111,46 @@ public class W4 {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					
-					final JFrame newWindow = new JFrame();
-					JLabel description = new JLabel("Here is some text explaining in more detail what just happened");
-				   
-					newWindow.setPreferredSize(new Dimension(600,200));
-					newWindow.setLocation(300, 300);
-					
-					newWindow.add(description); 
-				    newWindow.pack();
-				    newWindow.setVisible(true);
+					askAnother = 1;
 				}
 			});
-	                
+	   
 	        
-	        JButton info = new JButton("i");
-	        theBigQuestion.add(info);
-	        info.addActionListener(new ActionListener() {
+//	        JButton info = new JButton("i");
+//	        theBigQuestion.add(info);
+//	        info.addActionListener(new ActionListener() {
+//				
+//				@Override
+//				public void actionPerformed(ActionEvent arg0) {
+//					
+//					final JFrame newWindow = new JFrame();
+//					JLabel description = new JLabel("Here is some text explaining in more detail what just happened");
+//				   
+//					newWindow.setPreferredSize(new Dimension(600,200));
+//					newWindow.setLocation(300, 300);
+//					
+//					newWindow.add(description); 
+//				    newWindow.pack();
+//				    newWindow.setVisible(true);
+//				}
+//			});
+	        
+	        if ( askAnother == 1) {
+	        	JPanel moreQuestions = new JPanel();
+				moreQuestions.setOpaque(false);
+				moreQuestions.setLayout(new BoxLayout(moreQuestions, BoxLayout.Y_AXIS));
 				
-				@Override
-				public void actionPerformed(ActionEvent arg0) {
-					
-					final JFrame newWindow = new JFrame();
-					JLabel description = new JLabel("Here is some text explaining in more detail what just happened");
-				   
-					newWindow.setPreferredSize(new Dimension(600,200));
-					newWindow.setLocation(300, 300);
-					
-					newWindow.add(description); 
-				    newWindow.pack();
-				    newWindow.setVisible(true);
-				}
-			});
+				JLabel theNewQuestion = new JLabel("<html> Hahaha, I don't believe you!</html>");
+		        moreQuestions.add(theNewQuestion);	
+		        
+		        c = new GridBagConstraints();
+		        c.anchor = GridBagConstraints.LINE_START;
+		        c.gridx = 0;
+		        c.gridy = 1;
+		        c.weightx = 0.5;
+		        c.gridwidth = 2;
+	        	body.add(moreQuestions, c);
+	        }
 	        
 	        
 	        c = new GridBagConstraints();
@@ -147,86 +158,86 @@ public class W4 {
 	        c.gridx = 0;
 	        c.gridy = 0;
 	        c.weightx = 0.5;
-	        c.gridwidth = 2;
+	        c.gridwidth = 2;	        
 	        body.add(theBigQuestion, c);
 	        
-	        JSeparator line = new JSeparator();
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 0;
-	        c.gridy = 1;
-	        c.gridwidth = 6;
-	        c.weightx = 0.5;
-	        body.add(line, c);
+//	        JSeparator line = new JSeparator();
+//	        c = new GridBagConstraints();
+//	        c.anchor = GridBagConstraints.LINE_START;
+//	        c.fill = GridBagConstraints.HORIZONTAL;
+//	        c.gridx = 0;
+//	        c.gridy = 1;
+//	        c.gridwidth = 6;
+//	        c.weightx = 0.5;
+//	        body.add(line, c);
 	        
 //////////////////////////////////////   Example Row 2    ////////////////////////////////////////////
 	        
             
-			JPanel theBigQuestion2 = new JPanel();
-			theBigQuestion2.setOpaque(false);
-			theBigQuestion2.setLayout(new BoxLayout(theBigQuestion2, BoxLayout.Y_AXIS));
-			
-			JLabel theQuestion2 = new JLabel("<html> Will you marry me?</html>");
-			theBigQuestion2.add(theQuestion2);
-			
-			JCheckBox checkBox2 = new JCheckBox("Yes");
-			theBigQuestion2.add(checkBox2);
-			checkBox2.addActionListener(new ActionListener() {
-			
-				@Override
-				public void actionPerformed(ActionEvent arg0) {
-				
-					final JFrame newWindow = new JFrame();
-					JLabel description = new JLabel("Here is some text explaining in more detail what just happened");
-					
-					newWindow.setPreferredSize(new Dimension(600,200));
-					newWindow.setLocation(300, 300);
-					
-					newWindow.add(description); 
-					newWindow.pack();
-					newWindow.setVisible(true);
-				}
-			});
-			
-			
-			JButton info2 = new JButton("i");
-			theBigQuestion2.add(info2);
-			info2.addActionListener(new ActionListener() {
-			
-				@Override
-				public void actionPerformed(ActionEvent arg0) {
-				
-					final JFrame newWindow2 = new JFrame();
-					JLabel description = new JLabel("Here is some text explaining in more detail what just happened");
-					
-					newWindow2.setPreferredSize(new Dimension(600,200));
-					newWindow2.setLocation(300, 300);
-					
-					newWindow2.add(description); 
-					newWindow2.pack();
-					newWindow2.setVisible(true);
-				}
-			});
-			
-			
-			c = new GridBagConstraints();
-			c.anchor = GridBagConstraints.LINE_START;
-			c.gridx = 0;
-			c.gridy = 2;
-			c.weightx = 0.5;
-			c.gridwidth = 2;
-			body.add(theBigQuestion, c);
-			
-	        JSeparator line2 = new JSeparator();
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 0;
-	        c.gridy = 3;
-	        c.gridwidth = 6;
-	        c.weightx = 0.5;
-	        body.add(line2, c);
+//			JPanel theBigQuestion2 = new JPanel();
+//			theBigQuestion2.setOpaque(false);
+//			theBigQuestion2.setLayout(new BoxLayout(theBigQuestion2, BoxLayout.Y_AXIS));
+//			
+//			JLabel theQuestion2 = new JLabel("<html> Will you marry me?</html>");
+//			theBigQuestion2.add(theQuestion2);
+//			
+//			JCheckBox checkBox2 = new JCheckBox("Yes");
+//			theBigQuestion2.add(checkBox2);
+//			checkBox2.addActionListener(new ActionListener() {
+//			
+//				@Override
+//				public void actionPerformed(ActionEvent arg0) {
+//				
+//					final JFrame newWindow = new JFrame();
+//					JLabel description = new JLabel("Here is some text explaining in more detail what just happened");
+//					
+//					newWindow.setPreferredSize(new Dimension(600,200));
+//					newWindow.setLocation(300, 300);
+//					
+//					newWindow.add(description); 
+//					newWindow.pack();
+//					newWindow.setVisible(true);
+//				}
+//			});
+//			
+//			
+//			JButton info2 = new JButton("i");
+//			theBigQuestion2.add(info2);
+//			info2.addActionListener(new ActionListener() {
+//			
+//				@Override
+//				public void actionPerformed(ActionEvent arg0) {
+//				
+//					final JFrame newWindow2 = new JFrame();
+//					JLabel description = new JLabel("Here is some text explaining in more detail what just happened");
+//					
+//					newWindow2.setPreferredSize(new Dimension(600,200));
+//					newWindow2.setLocation(300, 300);
+//					
+//					newWindow2.add(description); 
+//					newWindow2.pack();
+//					newWindow2.setVisible(true);
+//				}
+//			});
+//			
+//			
+//			c = new GridBagConstraints();
+//			c.anchor = GridBagConstraints.LINE_START;
+//			c.gridx = 0;
+//			c.gridy = 2;
+//			c.weightx = 0.5;
+//			c.gridwidth = 2;
+//			body.add(theBigQuestion, c);
+//			
+//	        JSeparator line2 = new JSeparator();
+//	        c = new GridBagConstraints();
+//	        c.anchor = GridBagConstraints.LINE_START;
+//	        c.fill = GridBagConstraints.HORIZONTAL;
+//	        c.gridx = 0;
+//	        c.gridy = 3;
+//	        c.gridwidth = 6;
+//	        c.weightx = 0.5;
+//	        body.add(line2, c);
 	        
 			
 //////////////////////////////////////             ////////////////////////////////////////////   
