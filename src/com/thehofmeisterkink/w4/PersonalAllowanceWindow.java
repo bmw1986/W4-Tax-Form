@@ -34,6 +34,11 @@ public class PersonalAllowanceWindow {
 	
 		JLabel OMBNumber = new JLabel("<html>OMB No. 1545-0074 <br><big>2013</big><html>");
 		firstRow.add(OMBNumber);
+		
+		frame.setPreferredSize(new Dimension(600,200));
+		frame.setLocation(300, 300);
+		frame.pack();
+		frame.setVisible(true);
 	   
 	   frame.add(firstRow);
 	}
