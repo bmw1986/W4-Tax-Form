@@ -12,14 +12,11 @@ import java.awt.FlowLayout;
 import javax.swing.*;  
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
 import javax.swing.JPanel;  
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-
 
 public class W4 {
     
@@ -489,7 +486,7 @@ public class W4 {
 			JPanel signAndDate = new JPanel();
 			signAndDate.setLayout(new BoxLayout(signAndDate, BoxLayout.X_AXIS));
 			signAndDate.setAlignmentX(0);
-	        signAndDate.setPreferredSize(new Dimension(500, 40));
+	        signAndDate.setPreferredSize(new Dimension(500, 35));
 			signAndDate.add(new JButton("Employee's signature"));
 			signAndDate.add(new JLabel("<html>SIGNATURE HERE (This form is not valid unless you sign it.) </html>"));
 	        
