@@ -62,174 +62,122 @@ public class W4 {
 	
 	public static void main(String[] args) {
 		
-		//////Creates a Frame ////
+	//////Creates a Frame ////
 
 		final JFrame frame = new JFrame("The W4 Form");
-		JPanel titlePane = (JPanel)frame.getContentPane();
 		
-	//// First Row Component is made and added ////
+	//// titlePanel Panel is made and added ////
 		
-		JPanel firstRow = new JPanel();
-		firstRow.setLayout(new BoxLayout(firstRow, BoxLayout.X_AXIS));
+		JPanel titlePlanel = new JPanel();
+		titlePlanel.setLayout(new BoxLayout(titlePlanel, BoxLayout.X_AXIS));
 
-	//// w4 Component ////
+	//// Components are added to titlePanel ////
 			
-		JLabel w4 = new JLabel("<html>Form W-4 <br> Department of the Treasury  <br> Internal Revenue Service</html>");
-		firstRow.add(w4);
-	
-		//// Title Component ////
+		JLabel w4 = new JLabel("<html> Form W-4 <br> Department of the Treasury  <br> Internal Revenue Service </html>");
+		titlePlanel.add(w4);
 		
-		JLabel title = new JLabel("<html> <h2>Employee's Withholding Allowance Certificate </h2></html>");
+		JLabel title = new JLabel("<html> <h2> Employee's Withholding Allowance Certificate </h2> </html>");
 		title.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 		title.setBorder(new EmptyBorder(0, 10, 0, 10));
-		firstRow.add(title);
-		
-	//// OMBNo Component ////
+		titlePlanel.add(title);
 	
-		JLabel OMBNumber = new JLabel("<html>OMB No. 1545-0074 <br><big>2013</big><html>");
-		firstRow.add(OMBNumber);
+		JLabel OMBNumber = new JLabel("<html> OMB No. 1545-0074 <br> <big> 2013 </big> </html>");
+		titlePlanel.add(OMBNumber);
 
-	//// Body Component //// 
+	//// Body Panel is made //// 
 		
        final JPanel body = new JPanel();
        body.setBorder(new LineBorder(Color.black, 2));
        body.setLayout(new GridBagLayout());
-       GridBagConstraints c;
+       GridBagConstraints c = new GridBagConstraints();
        
-//////////////////////////////////////    1st Row    ////////////////////////////////////////////
-	        
-        //// Asks for the First and Middle Name ////
+//////////////////////////////////////    1st Row (Name)   ////////////////////////////////////////////
+	   
+       //// Asks for the First and Middle Name ////
         
-	        JPanel firstAndMiddle = new JPanel();
-	        firstAndMiddle.setOpaque(false);
-	        firstAndMiddle.setLayout(new BoxLayout(firstAndMiddle,BoxLayout.Y_AXIS));
+	        JPanel question1_firstName = new JPanel();
+	        question1_firstName.setLayout(new BoxLayout(question1_firstName,BoxLayout.Y_AXIS));
+	        question1_firstName.setOpaque(false);
 	        
-	        JLabel prompt = new JLabel("<html><b>1 </b>Your first and middle initial</html>");
-	        firstAndMiddle.add(prompt);
-	        
+	        JLabel labelFirstName = new JLabel("<html> <b> 1. </b> Your first and middle initial </html>");
+	        labelFirstName.setAlignmentX(0);
+	        question1_firstName.add(labelFirstName);
+	       
 	        JPanel names = new JPanel();
+	        names.setAlignmentX(0);
 	        names.add(new JTextField(15));
 	        names.add(new JComboBox(initials));
-	        prompt.setAlignmentX(0);
-	        names.setAlignmentX(0);
-	        firstAndMiddle.add(names);
+	        question1_firstName.add(names);
 			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
 	        c.gridy = 0;
 	        c.weightx = 0.5;
 	        c.gridwidth = 2;
-	        body.add(firstAndMiddle, c);
+	        body.add(question1_firstName, c);
 	        
-        //// Asks for the Last Name ////
+       //// Asks for the Last Name ////
 	        
-	        JPanel lastName = new JPanel();
-	        lastName.setLayout(new BoxLayout(lastName,BoxLayout.Y_AXIS));
-	        JLabel lLastName = new JLabel("Last name");
-	        JTextField tLastName = new JTextField(15);
-	   
-	        lLastName.setAlignmentX(0);
-	        tLastName.setAlignmentX(0);
-	        lastName.add(lLastName);
-	        lastName.add(tLastName);
+	        JPanel question1_lastName = new JPanel();
+	        question1_lastName.setLayout(new BoxLayout(question1_lastName,BoxLayout.Y_AXIS));
+	        question1_lastName.setOpaque(false);
+	        
+	        JLabel labelLastName = new JLabel("<html> Last name </html>");
+	        labelLastName.setAlignmentX(0);
+	        question1_lastName.add(labelLastName);
+	        
+	        JTextField textLastName = new JTextField(15);
+	        textLastName.setAlignmentX(0);
+	        question1_lastName.add(textLastName);
 			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
-	        //        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 2;
 	        c.gridy = 0;
 	        c.gridwidth = 2;
-	        c.weightx = 0.5;
-	        body.add(lastName, c);
+	        body.add(question1_lastName, c);
 	        
-        //// Asks for the SSN ////
+	   //// Creates a line Separator ////
 	        
-	        JPanel SSN = new JPanel();
-	        SSN.setLayout(new BoxLayout(SSN,BoxLayout.Y_AXIS));
-	        JLabel lSSN = new JLabel("<html><b>2  Your social security number</b></html>");
-	        JTextField tSSN = new JTextField(15);
-	        lSSN.setAlignmentX(0);
-	        tSSN.setAlignmentX(0);
-	        SSN.add(lSSN);
-	        SSN.add(tSSN);
-			
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        //        c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 4;
-	        c.gridy = 0;
-	        c.gridwidth = 2;
-	        c.weightx = 0.5;
-	        body.add(SSN, c);
-        
-        //// Creates a line Separator ////
-	        
-	        JSeparator line = new JSeparator();
+	        JSeparator line1_2 = new JSeparator();
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
 	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
 	        c.gridy = 1;
-	        c.gridwidth = 6;
 	        c.weightx = 0.5;
-	        body.add(line, c);
-        
-//////////////////////////////////////    2nd Row    ////////////////////////////////////////////
-        
-	   //// Prompts for an Address ////
+	        c.gridwidth = 6;
+	        body.add(line1_2, c);
 	        
-		    JPanel homeAddress = new JPanel();
-	        homeAddress.setLayout(new BoxLayout(homeAddress,BoxLayout.Y_AXIS));
-	        JLabel lAddress = new JLabel("Home address (number and street or rural route)");
-	        JTextField tAddress = new JTextField(15);
-	        lAddress.setAlignmentX(0);
-	        tAddress.setAlignmentX(0);
-	        homeAddress.add(lAddress);
-	        homeAddress.add(tAddress);
+//////////////////////////////////////     2nd Row (SSN)   //////////////////////////////////////////// 
+	        
+	        JPanel question2 = new JPanel();
+	        question2.setLayout(new BoxLayout(question2,BoxLayout.Y_AXIS));
+	        question2.setOpaque(false);
+	        
+	        JLabel labelSSN = new JLabel("<html> <b> 2. </b>  Your social security number </html>");
+	        labelSSN.setAlignmentX(0);
+	        question2.add(labelSSN);
+	        
+	        JTextField textSSN = new JTextField(15);
+	        textSSN.setAlignmentX(0);
+	        question2.add(textSSN);
 			
 	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.anchor = GridBagConstraints.LAST_LINE_START;
+	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
 	        c.gridy = 2;
+	        c.weighty = 2;
 	        c.gridwidth = 2;
-	        c.weightx = 0.5;
-	        body.add(homeAddress, c);
+	        body.add(question2, c);
+        
+       //// Creates a line Separator ////
 	        
-	   //// Asks for Martial Status ////
-	        
-	        JPanel marriageStatus = new JPanel();
-	        marriageStatus.setLayout(new BoxLayout(marriageStatus,BoxLayout.Y_AXIS));
-	        JPanel buttons = new JPanel(new FlowLayout(FlowLayout.LEFT));
-	        JRadioButton single = new JRadioButton("Single");
-	        JRadioButton married = new JRadioButton("Married");
-	        JRadioButton married2 = new JRadioButton("Married, but withhold at higher Single rate.");
-	        buttons.add(new JLabel("<html><b>3 </b></html>"));
-	        buttons.add(single);
-	        buttons.add(married);
-	        buttons.add(married2);
-	        ButtonGroup exclusive = new ButtonGroup();
-	        exclusive.add(single);
-	        exclusive.add(married);
-	        exclusive.add(married2);
-	        JLabel note = new JLabel("<html><b>Note.</b> <tt><small>If married, but legally separated, or spouse is a nonresident alient, check the \"Single\" box.</small></tt>");
-	        buttons.setAlignmentX(0);
-	        note.setAlignmentX(0);
-	        marriageStatus.add(buttons);
-	        marriageStatus.add(note);
-			
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 2;
-	        c.gridy = 2;
-	        c.gridwidth = 4;
-	        c.weightx = 0.5;
-	        body.add(marriageStatus, c);
-	        
-	        line = new JSeparator();
+	        JSeparator line2_3 = new JSeparator();
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
 	        c.fill = GridBagConstraints.HORIZONTAL;
@@ -237,76 +185,186 @@ public class W4 {
 	        c.gridy = 3;
 	        c.gridwidth = 6;
 	        c.weightx = 0.5;
-	        body.add(line, c);
-	        
-////////////////////////////////////////    3rd Row    ////////////////////////////////////////////
+	        body.add(line2_3, c);
         
-		//// Asks for City, State, ZIP Code ////    
+//////////////////////////////////////    3nd Row (Home Address)   ////////////////////////////////////////////
+        
+	   //// Prompts for an Street Address ////
 	        
-	        JPanel cityStateZip = new JPanel();
-	        cityStateZip.setLayout(new BoxLayout(cityStateZip, BoxLayout.Y_AXIS));
-	        JLabel label = new JLabel("City or town, state, and ZIP code");
-	        JPanel cityStateZip2 = new JPanel();
-	        JTextField cityTown = new JTextField(10);
-	        JComboBox cStates = new JComboBox(states);
-	        JTextField zip = new JTextField(5);
-	        cityStateZip2.add(cityTown);
-	        cityStateZip2.add(cStates);
-	        cityStateZip2.add(zip);
-	        label.setAlignmentX(0);
-	        cityStateZip2.setAlignmentX(0);
-	        cityStateZip.add(label);
-	        cityStateZip.add(cityStateZip2);
+		    JPanel question3_streetAddress = new JPanel();
+		    question3_streetAddress.setLayout(new BoxLayout(question3_streetAddress,BoxLayout.Y_AXIS));
+		    question3_streetAddress.setOpaque(false);
+		    
+		    JLabel labelAddress = new JLabel("<html> <b> 3. </b> Home address (number and street or rural route </html>)");
+		    labelAddress.setAlignmentX(0);
+	        question3_streetAddress.add(labelAddress);
+
+	        JTextField textAddress = new JTextField(15);
+	        textAddress.setAlignmentX(0);
+	        question3_streetAddress.add(textAddress);
 			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 0;
+	        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 1;
 	        c.gridy = 4;
-	        c.gridwidth = 3;
-	        c.weightx = 0.5;
-	        body.add(cityStateZip, c);
+	        c.weighty = 2;
+	        c.gridwidth = 2;
+	        body.add(question3_streetAddress, c);
 	        
-	    //// Does Last Name Differ from SSN ////    
 	        
-	        JPanel lastNameNote = new JPanel();
-	        JLabel diffNameNote = new JLabel("<html><b>4 If your last name differs from that shown on your social security card,<br> check the box on right. You must call 1-800-772-1213 for a replacement card.</b></html>");
-	        JCheckBox box = new JCheckBox();
-	        lastNameNote.add(diffNameNote);
-	        lastNameNote.add(box);
+	   //// Prompts for a City ////
+	        
+		    JPanel question3_city = new JPanel();
+		    question3_city.setLayout(new BoxLayout(question3_city,BoxLayout.Y_AXIS));
+	        
+		    JLabel labelCity = new JLabel("<html> City <html>");
+		    labelCity.setAlignmentX(0);
+		    question3_city.add(labelCity);
+
+	        JTextField textCity = new JTextField(15);
+	        textCity.setAlignmentX(0);
+	        question3_city.add(textCity);
 			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 2;
+	        c.gridy = 4;
+	        c.weighty = 2;
+	        c.gridwidth = 2;
+	        body.add(question3_city, c);
+	        
+	        
+	   //// Prompts for a State ////
+	        
+		    JPanel question3_state = new JPanel();
+		    question3_state.setLayout(new BoxLayout(question3_state,BoxLayout.Y_AXIS));
+		    question3_state.setOpaque(false);
+	        
+		    JLabel labelState = new JLabel("<html> State </html>");
+		    labelState.setAlignmentX(0);
+		    question3_state.add(labelState);
+
+		    JComboBox cStates = new JComboBox(states);
+		    cStates.setAlignmentX(0);
+		    question3_state.add(cStates);		    
+			
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 3;
 	        c.gridy = 4;
-	        c.gridwidth = 3;
-	        c.weightx = 0.5;
-	        body.add(lastNameNote, c);
+	        c.weighty = 2;
+	        c.gridwidth = 2;
+	        body.add(question3_state, c);
 	        
-	    //// Grid Separator ////    
+	   //// Prompts for a Zip Code ////
 	        
-	        line = new JSeparator();
+		    JPanel question3_zip = new JPanel();
+		    question3_zip.setLayout(new BoxLayout(question3_zip,BoxLayout.Y_AXIS));
+	        
+		    JLabel labelZip = new JLabel("<html> State </html>");
+		    labelZip.setAlignmentX(0);
+		    question3_zip.add(labelZip);
+
+	        JTextField textZip = new JTextField(15);
+	        textZip.setAlignmentX(0);
+	        question3_zip.add(textZip);
+			
+	        c = new GridBagConstraints();
+	        c.anchor = GridBagConstraints.LINE_START;
+	        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.gridx = 4;
+	        c.gridy = 4;
+	        c.weighty = 2;
+	        c.gridwidth = 2;
+	        body.add(question3_zip, c);
+	        
+//////////////////////////////////////////  4rd Row  (Maritial Status  ////////////////////////////////////////////
+	        
+	   //// Asks for Maritial Status ////
+	        
+	        JPanel question4 = new JPanel();
+	        question4.setLayout(new BoxLayout(question4,BoxLayout.Y_AXIS));
+	        question3_state.setOpaque(false);
+	        
+	        JPanel question4_buttons = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	        
+	        JRadioButton single = new JRadioButton("Single");
+	        JRadioButton married = new JRadioButton("Married");
+	        JRadioButton married2 = new JRadioButton("Married, but withhold at higher Single rate.");
+	        
+	        question4_buttons.add(new JLabel("<html> <b> 3 </b> </html>"));
+	        question4_buttons.add(single);
+	        question4_buttons.add(married);
+	        question4_buttons.add(married2);
+	        
+	        ButtonGroup exclusive = new ButtonGroup();
+	        exclusive.add(single);
+	        exclusive.add(married);
+	        exclusive.add(married2);
+	        
+	        JLabel question4_note = new JLabel("<html><b>Note.</b> <tt><small>If married, but legally separated, or spouse is a nonresident alient, check the \"Single\" box.</small></tt>");
+	        question4_buttons.setAlignmentX(0);
+	        question4_note.setAlignmentX(0);
+	        question4.add(question4_buttons);
+	        question4.add(question4_note);
+			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
 	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
 	        c.gridy = 5;
-	        c.gridwidth = 6;
+	        c.gridwidth = 4;
 	        c.weightx = 0.5;
-	        body.add(line, c);
+	        c.weighty = 2;
+	        body.add(question4, c);
+	        
+///////////////////////////////////////    5th Row (Name differ from SSN Card)    /////////////////////////////////////////
         
-//////////////////////////////////////     4th Row    ////////////////////////////////////////////
+	       JPanel question5 = new JPanel();
+	       question5.setLayout(new BoxLayout(question5, BoxLayout.Y_AXIS));
+	       question5.setOpaque(false);
 	        
-	    //// Number of Allowances you are claiming ////
+	       JLabel labelDiffer = new JLabel("<html> <b> 5. </b> Does your name differ from the one that is on your Social Security Card </html>");
+	       labelDiffer.setAlignmentX(0);
+	       question5.add(labelDiffer);
+   
+	       JPanel question5_buttons = new JPanel(); 
+	       JRadioButton buttonsDifferYes= new JRadioButton("Yes");
+	       JRadioButton buttonsDifferNo = new JRadioButton("No");
+	       question5_buttons.add(buttonsDifferYes);
+	       question5_buttons.add(buttonsDifferNo);
+	       
+	       ButtonGroup question5_buttonGroup = new ButtonGroup();
+	       question5_buttonGroup.add(buttonsDifferYes);
+	       question5_buttonGroup.add(buttonsDifferNo);
+	       
+	       question5.add(labelDiffer);
+	       question5.add(question5_buttons);
+	       
+	       c = new GridBagConstraints();
+	       c.anchor = GridBagConstraints.LINE_START;
+	       c.fill = GridBagConstraints.HORIZONTAL;
+	       c.gridx = 0;
+	       c.gridy = 6;
+	       c.gridwidth = 4;
+	       c.weightx = 0.5;
+	       c.weighty = 2;
+	       body.add(question5, c);
+	
+////////////////////////////////////////     6th Row (Allowances)    ////////////////////////////////////////////
+
+	        JPanel question6 = new JPanel();
+	        question6.setLayout(new BoxLayout(question6, BoxLayout.Y_AXIS));
+	        question6.setOpaque(false);
 	        
-	        JPanel allowances = new JPanel();
-	        JLabel allowancesNote = new JLabel("<html><b>5  </b>Total number of allowances you are claiming. Click button on right to calculate.</html>");
-	        JLabel num = new JLabel(" ## ");
-	        JButton button = new JButton("Worksheet");
-	        allowances.add(allowancesNote);
-	        allowances.add(num);
-	        allowances.add(button);
+	        JLabel allowancesLabel = new JLabel("<html> <b> 6. </b> Total number of allowances you are claiming. Click button on right to calculate. </html>");
+	        JButton button = new JButton("Click for help");
+	        question6.add(allowancesLabel);
+	        question6.add(button);
+	        
 	        button.addActionListener(new ActionListener() {
 
 				@Override
@@ -317,71 +375,49 @@ public class W4 {
 			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 0;
-	        c.gridy = 6;
-	        c.gridwidth = 6;
-	        c.weightx = 0.5;
-	        body.add(allowances, c);
-	        
-	    //// Grid Separator ////    
-	        
-	        line = new JSeparator();
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
 	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
 	        c.gridy = 7;
 	        c.gridwidth = 6;
 	        c.weightx = 0.5;
-	        body.add(line, c);
-        
-//////////////////////////////////////    5th Row    ////////////////////////////////////////////
-        
-	    //// Addition amount owed ////    
+	        body.add(question6, c);
 	        
-	        JPanel additional = new JPanel();
-	        JLabel additionalNote = new JLabel("<html><b>6 </b>Additional amount, if any, you want to withheld from each paycheck. <b>$</b></html>");
-	        JTextField amount = new JTextField(7);
-	        additional.add(additionalNote);
-	        additional.add(amount);
+////////////////////////////////////////   7th Row (Additional)    ////////////////////////////////////////////
+
+			JPanel question7 = new JPanel();
+			question7.setLayout(new BoxLayout(question7, BoxLayout.Y_AXIS));
+			question7.setOpaque(false);
 			
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 0;
-	        c.gridy = 8;
-	        c.gridwidth = 6;
-	        c.weightx = 0.5;
-	        body.add(additional, c);
-	        
-	    //// Creates Line Separator ////    
-	        
-	        line = new JSeparator();
-	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LINE_START;
-	        c.fill = GridBagConstraints.HORIZONTAL;
-	        c.gridx = 0;
-	        c.gridy = 9;
-	        c.gridwidth = 6;
-	        c.weightx = 0.5;
-	        body.add(line, c);
-        
-//////////////////////////////////////    7th Row    ////////////////////////////////////////////
+			JLabel question7_label = new JLabel("<html> <b> 7. </b> Would you like to add an aditional amount to be withheld from each paycheck? </html>");
+			question7.add(question7_label);
+
+			JTextField question7_button = new JTextField("Enter amount here");
+			question7.add(question7_button);
+			
+			c = new GridBagConstraints();
+			c.anchor = GridBagConstraints.LINE_START;
+			c.fill = GridBagConstraints.HORIZONTAL;
+			c.gridx = 0;
+			c.gridy = 8;
+			c.gridwidth = 6;
+			c.weightx = 0.5;
+			body.add(question7, c);
+	       
+////////////////////////////////////////    8th Row (Accepting Terms)    ////////////////////////////////////////////
         
        //// Accepting Terms ////
 	        
 		    JPanel exempt = new JPanel();
-	        JLabel exemptNote = new JLabel("<html><b>7 </b>I claim exemption from withholding for 2013, and I certify that I meet <b>both</b> of the following conditions for exemption. <ul>  <li>Last year I had a right to a refund of <b>all</b> federal income tax withheld because I had <b>no</b> tax liability, <b>and</b></li>  <li>This year I expect a refund of <b>all</b> federal income tax withheld because I expect to have <b>no</b> tax liability.</li></ul> <br> If you meet both conditions, check the \"Exempt\" box on right.</html>");
+	        JLabel exemptNote = new JLabel("<html><b>8. </b>I claim exemption from withholding for 2013, and I certify that I meet <b>both</b> of the following conditions for exemption. <ul>  <li>Last year I had a right to a refund of <b>all</b> federal income tax withheld because I had <b>no</b> tax liability, <b>and</b></li>  <li>This year I expect a refund of <b>all</b> federal income tax withheld because I expect to have <b>no</b> tax liability.</li></ul> <br> If you meet both conditions, check the \"Exempt\" box on right.</html>");
 	        JCheckBox exemptBox = new JCheckBox("Exempt");
 	        exempt.add(exemptNote);
 	        exempt.add(exemptBox);
 			
 	        c = new GridBagConstraints();
 	        c.anchor = GridBagConstraints.LINE_START;
-	        // c.fill = GridBagConstraints.HORIZONTAL;
+	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
-	        c.gridy = 10;
+	        c.gridy = 9;
 	        c.gridwidth = 6;
 	        c.weightx = 0.5;
 	        body.add(exempt, c);
@@ -392,14 +428,14 @@ public class W4 {
 			decl.setAlignmentX(0);
 			bottom.add(decl);
 		
-//////////////////////////////////////     8th Row    ////////////////////////////////////////////  			
+//////////////////////////////////////     9th Row (Signature)    ////////////////////////////////////////////  			
 			
 		//// The Employee's Signature	
 			
 			JPanel signAndDate = new JPanel();
 			signAndDate.setLayout(new BoxLayout(signAndDate, BoxLayout.X_AXIS));
 			signAndDate.setAlignmentX(0);
-	        // signAndDate.setPreferredSize(new Dimension(500, 200));
+	        signAndDate.setPreferredSize(new Dimension(500, 200));
 			signAndDate.add(new JButton("Employee's signature"));
 			signAndDate.add(new JLabel("<html>SIGNATURE HERE (This form is not valid unless you sign it.) </html>"));
 	        
@@ -420,14 +456,13 @@ public class W4 {
 			
 //////////////////////    Adds the Content     ///////////////////////////////			
         
-		frame.add(firstRow, BorderLayout.NORTH);
+		frame.add(titlePlanel, BorderLayout.NORTH);
 		frame.add(body, BorderLayout.CENTER);
 		frame.add(bottom, BorderLayout.SOUTH);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		frame.pack();
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setLocation(50, 50);
 		frame.setVisible(true);
         
