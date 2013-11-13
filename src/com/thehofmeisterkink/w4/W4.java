@@ -387,9 +387,12 @@ public class W4 {
 	        JPanel question6 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 	        question6.setOpaque(false);
 	        
-	        JLabel allowancesLabel = new JLabel("<html> <b> 6. </b> Total number of allowances you are claiming. Click button on right to calculate. </html>");
+	        JLabel allowancesLabel_1 = new JLabel("<html> <b> 6. </b> What are the total number of allowances you are claiming? </html>");
+	        JTextField allowancesText = new JTextField(" Enter Amount Here ");
 	        JButton question6_button = new JButton("Click for help");
-	        question6.add(allowancesLabel);
+	        
+	        question6.add(allowancesLabel_1);
+	        question6.add(allowancesText);
 	        question6.add(question6_button);
 	        
 	        question6_button.addActionListener(new ActionListener() {
@@ -429,8 +432,19 @@ public class W4 {
 			JLabel question7_label = new JLabel("<html> <b> 7. </b> Would you like to add an aditional amount to be withheld from each paycheck? </html>");
 			question7.add(question7_label);
 
-			JTextField question7_button = new JTextField("Enter amount here");
+			JTextField question7_text = new JTextField(" Enter amount here ");
+			question7.add(question7_text);
+			
+			JButton question7_button = new JButton("Click here for help");
 			question7.add(question7_button);
+			
+			question7_button.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					WithholdingWindow.callWindow();
+				}
+	        });
 			
 			c = new GridBagConstraints();
 			c.anchor = GridBagConstraints.LINE_START;

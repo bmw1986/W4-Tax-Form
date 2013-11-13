@@ -8,11 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;  
 import javax.swing.JPanel;  
 
-public class PersonalAllowanceWindow {
+public class WithholdingWindow {
 	
 	public static void callWindow() {
 	
-		JFrame frame = new JFrame("Personal Allowance Worksheet");
+		JFrame frame = new JFrame("Withholdings Worksheet");
 		
 		JPanel firstRow = new JPanel();
 		firstRow.setLayout(new BoxLayout(firstRow, BoxLayout.X_AXIS));
