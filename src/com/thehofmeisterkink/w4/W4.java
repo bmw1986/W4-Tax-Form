@@ -9,9 +9,13 @@ import java.awt.FlowLayout;
   
 
 
+
+import java.text.ParseException;
+
 import javax.swing.*;  
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.text.MaskFormatter;
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
 import javax.swing.JPanel;  
@@ -93,11 +97,9 @@ public class W4 {
        //// Asks for the First and Middle Name ////
         
 	        JPanel question1_firstName = new JPanel();
-	        question1_firstName.setAlignmentX(0);
 	        question1_firstName.setOpaque(false);
 	    
 	        JLabel labelFirstName = new JLabel("<html> <b> 1. </b> Your first and middle initial </html>");
-	        labelFirstName.setAlignmentX(0);
 	        question1_firstName.add(labelFirstName);
 	        
 	        question1_firstName.add(new JTextField(15));
@@ -115,11 +117,10 @@ public class W4 {
        //// Asks for the Last Name ////
 	        
 	        JPanel question1_lastName = new JPanel();
-	        question1_firstName.setAlignmentX(0);
 	        question1_lastName.setOpaque(false);
 	        
 	        JLabel labelLastName = new JLabel("<html> Last name </html>");
-	        labelLastName.setAlignmentX(0);
+	        question1_firstName.setAlignmentX(0);
 	        question1_lastName.add(labelLastName);
 	        
 	        question1_lastName.add(new JTextField(15));
@@ -146,7 +147,17 @@ public class W4 {
 	        
 //////////////////////////////////////     2nd Row (SSN)   //////////////////////////////////////////// 
 	        
-	        JPanel question2 = new JPanel();
+	        // Formated SSN Code //
+	        
+		        MaskFormatter formattedSSN = null;
+				try {
+					formattedSSN = new MaskFormatter("###-###-####");
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			JPanel question2 = new JPanel();
 	        question2.setLayout(new BoxLayout(question2,BoxLayout.Y_AXIS));
 	        question2.setOpaque(false);
 	        
@@ -154,12 +165,12 @@ public class W4 {
 	        labelSSN.setAlignmentX(0);
 	        question2.add(labelSSN);
 	        
-	        JTextField textSSN = new JTextField(15);
+	        JFormattedTextField textSSN = new JFormattedTextField(formattedSSN);
 	        textSSN.setAlignmentX(0);
 	        question2.add(textSSN);
 			
 	        c = new GridBagConstraints();
-	        c.anchor = GridBagConstraints.LAST_LINE_START;
+	        c.anchor = GridBagConstraints.LINE_START;
 	        c.fill = GridBagConstraints.HORIZONTAL;
 	        c.gridx = 0;
 	        c.gridy = 2;
@@ -254,6 +265,17 @@ public class W4 {
 	        
 	   //// Prompts for a Zip Code ////
 	        
+	        // Formated Zip Code //
+	        
+		        MaskFormatter formattedZipCode = null;
+				try {
+					formattedZipCode = new MaskFormatter("#####");
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	              
+	        
 		    JPanel question3_zip = new JPanel();
 		    question3_zip.setLayout(new BoxLayout(question3_zip,BoxLayout.Y_AXIS));
 	        
@@ -261,7 +283,7 @@ public class W4 {
 		    labelZip.setAlignmentX(0);
 		    question3_zip.add(labelZip);
 
-	        JTextField textZip = new JTextField(15);
+		    JFormattedTextField textZip = new JFormattedTextField(formattedZipCode);
 	        textZip.setAlignmentX(0);
 	        question3_zip.add(textZip);
 			
